@@ -1,193 +1,91 @@
+﻿# Hospital Appointment Management System
 
-# Hospital Appointment Management System
+A full-stack hospital appointment management system built with React, TypeScript, Vite, Node.js, Express, and MongoDB.
 
-A full-stack web application for managing hospital appointments, built with React, Node.js, Express, and MongoDB.
+## Project Structure
+
+- `backend/` - API server, routes, controllers, models, middleware, and seed scripts.
+- `frontend/` - React app in TypeScript with Vite and custom components.
+- `README.md` - Project documentation.
 
 ## Features
 
-- **User Authentication**: Secure login and registration for patients, doctors, and admins
-- **Appointment Booking**: Patients can book appointments with available doctors
-- **Doctor Management**: Admin can manage doctor profiles and availability
-- **Dashboard**: Separate dashboards for patients, doctors, and administrators
-- **Appointment Management**: View, update, and cancel appointments
-- **Responsive Design**: Modern UI built with React and Tailwind CSS
-
-## Tech Stack
-
-### Frontend
-- React 18
-- TypeScript
-- Vite
-- Tailwind CSS
-- Radix UI Components
-- React Router
-
-### Backend
-- Node.js
-- Express.js
-- MongoDB with Mongoose
-- JWT Authentication
-- bcryptjs for password hashing
+- User roles: patient, doctor, and admin.
+- Authentication with JWT.
+- Booking, viewing, updating, and cancelling appointments.
+- Doctor profile management and availability.
+- Admin dashboard: user/doctor/appointment management.
+- Responsive UI.
 
 ## Prerequisites
 
-- Node.js (v16 or higher)
-- MongoDB (local installation or MongoDB Atlas)
-- npm or yarn
+- Node.js 16+
+- npm
+- MongoDB local or Atlas
 
-## Installation & Setup
+## Setup
 
-### Clone the Repository
+1. Clone repository:
 ```bash
 git clone https://github.com/surivenky727-web/amsdProject.git
 cd amsdProject
 ```
-
-### Backend Setup
-
-1. Navigate to the backend directory:
+2. Install dependencies for all packages:
 ```bash
-cd backend
+npm run install-all
 ```
 
-2. Install dependencies:
-```bash
-npm install
-```
+### Backend config
 
-3. Create a `.env` file in the `backend/` directory:
-```env
+1. Set environment variables in `backend/.env`:
+```
 MONGO_URI=mongodb://localhost:27017/hospital_appointment
-JWT_SECRET=your_super_secret_jwt_key_here
+JWT_SECRET=your_secret_key
 PORT=4001
 ```
-
-4. Start MongoDB service (if using local MongoDB)
-
-5. Seed the database with sample doctors:
+2. Seed sample data:
 ```bash
+cd backend
 npm run seed
 ```
-
-6. Start the backend server:
+3. Start backend:
 ```bash
-npm run dev  # For development with nodemon
-# or
-npm start    # For production
-```
-
-The backend will run on `http://localhost:4001`
-
-### Frontend Setup
-
-1. Navigate to the frontend directory:
-```bash
-cd frontend
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Start the development server:
-```bash
+cd backend
 npm run dev
 ```
 
-The frontend will run on `http://localhost:5173`
+### Frontend config
 
-## Usage
+1. Start frontend:
+```bash
+cd frontend
+npm run dev
+```
+2. Open app: `http://localhost:5173`
 
-1. Open your browser and go to `http://localhost:5173`
-2. Register as a new user or login with existing credentials
-3. Book appointments with available doctors
-4. Manage your appointments from the dashboard
+## Root scripts
 
-### Default Admin Account
-After seeding the database, you can login as admin with:
-- Email: admin@example.com
-- Password: admin123
+- `npm run dev` - concurrently start backend and frontend
+- `npm run build` - build frontend
+- `npm start` - start backend
+- `npm run install-all` - install all dependencies
 
 ## API Endpoints
 
-### Authentication
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/login` - User login
+- auth: `POST /api/auth/register`, `POST /api/auth/login`
+- doctors: `GET /api/doctors`, `POST /api/doctors` (admin)
+- appointments: `GET /api/appointments`, `POST /api/appointments`, `PUT /api/appointments/:id`, `DELETE /api/appointments/:id`
+- admin: `GET /api/admin/users`, `GET /api/admin/appointments`
 
-### Appointments
-- `GET /api/appointments` - Get all appointments
-- `POST /api/appointments` - Create new appointment
-- `PUT /api/appointments/:id` - Update appointment
-- `DELETE /api/appointments/:id` - Delete appointment
+## Commit and push
 
-### Doctors
-- `GET /api/doctors` - Get all doctors
-- `POST /api/doctors` - Add new doctor (Admin only)
-
-### Admin
-- `GET /api/admin/users` - Get all users
-- `GET /api/admin/appointments` - Get all appointments
-
-## Project Structure
-
-```
-├── backend/
-│   ├── controllers/     # Route controllers
-│   ├── models/         # MongoDB models
-│   ├── routes/         # API routes
-│   ├── middleware/     # Custom middleware
-│   ├── seed/          # Database seeding scripts
-│   └── server.js      # Main server file
-├── frontend/
-│   ├── src/
-│   │   ├── components/ # Reusable components
-│   │   ├── pages/     # Page components
-│   │   ├── services/  # API service functions
-│   │   ├── types/     # TypeScript type definitions
-│   │   └── utils/     # Utility functions
-│   └── public/        # Static assets
-└── README.md
+```bash
+git add .
+git commit -m "docs: update README for project"
+git push origin HEAD
 ```
 
-## Contributing
+## Notes
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-
-  
-  The API will listen on port `4001` by default.
-  
-  ### Admin Setup
-  
-  To create an admin user, run:
-  
-  ```bash
-  npm run create-admin
-  ```
-  
-
-  
-  Admin can:
-  - View and manage all users
-  - View and manage all doctors (create, edit, delete)
-  - View and manage all appointments
-  - Update appointment statuses
-  - Promote users to admin
-  
-  ## Notes
-  
-  - The frontend now communicates with the backend for authentication, doctor data and appointments.
-  - Make sure MongoDB is running locally or provide a hosted URI in `MONGO_URI`.
-  - Admin dashboard is accessible at `/admin` for users with admin role.
-  
+- Ensure MongoDB is running, or set `MONGO_URI` to Atlas.
+- Backend default: `localhost:4001`, frontend default: `localhost:5173`.

@@ -1,0 +1,17 @@
+{
+  "name": "hospital-appointment-system",
+  "version": "1.0.0",
+  "description": "Full-stack hospital appointment management system",
+  "scripts": {
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": ["hospital", "appointment", "management", "react", "nodejs"],
+  "author": "surivenky727-web",
+  "license": "MIT"
+}
