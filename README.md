@@ -164,7 +164,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-- Original design inspiration from Figma: https://www.figma.com/design/khIckLQF2gir1Mb1CW58EH/HospitalAppointment
+
   
   The API will listen on port `4001` by default.
   
@@ -176,11 +176,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
   npm run create-admin
   ```
   
-  Admin credentials:
-  - **Email**: admin@medicare.com
-  - **Password**: admin123
-  
-  ⚠️ **Important**: Change the password after first login!
+
   
   Admin can:
   - View and manage all users
